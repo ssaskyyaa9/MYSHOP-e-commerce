@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keranjang anda</title>
+  <link href="./style/output.css" rel="stylesheet" />
+</head>
+<body class="bg-[#7E83A3] font-sans overflow-x-hidden">
+
+  <!-- Header -->
+  <div class="bg-[#E3D5E2] px-4 py-4 flex items-center justify-between">
+  <a href="homepage.html" class="flex items-center text-[#686792] font-semibold text-2xl mr-4">
+    <img src="image/back.png" alt="Back" class="w-10 h-10 mr-7"/>
+    Keranjang anda
+    <span id="cart-count" class="text-[#686792] ml-5">(0)</span>
+  </a>
+
+  <div class="flex items-center">
+    <input type="checkbox" id="check-all" class="w-5 h-5 mr-3">
+    <span id="total-harga" class="text-[#686792] mr-5 font-semibold text-2xl">(Rp 0)</span>
+    <button id="btn-checkout" class="bg-[#7E83A3] text-white px-6 py-1 rounded shadow hover:bg-[#6d7298]">Checkout</button>
+  </div>
+  </div>
+ 
+  <!--box keranjang-->
+  <section id="keranjang-container" class="p-6"></section>
+
+  <!-- Template keranjang item -->
+  <template id="template-keranjang">
+    <section class="bg-white p-6 rounded shadow mb-6 max-w-7xl h-55 mx-auto">
+      <div class="flex flex-wrap items-center gap-6">
+        <input type="checkbox" class="w-5 h-5" />
+        <div><img class="produk-thumbnail w-32 h-32 -mt-11 rounded object-cover" /></div>
+
+        <div class="flex-1">
+          <h2 class="produk-judul text-2xl font-bold text-[#4F5575] mb-1"></h2>
+          <p class="produk-deskripsi text-sm text-gray-600 mt-5"></p>
+
+          <div class="flex items-center mt-6 bg-gray-200 rounded w-fit">
+            <button class="btn-min px-3 py-1 text-black text-xl">-</button>
+            <input type="text" value="1" class="qty-input w-10 text-center bg-white text-black py-1 outline-none" readonly />
+            <button class="btn-plus px-3 py-1 text-black text-xl">+</button>
+          </div>
+
+          <p class="produk-harga text-[#7E83A3] text-xl font-bold -mt-3 -ml-38"></p>
+        </div>
+      
+        <div class="max-w-5xl mx-auto flex justify-end items-center gap-4 mb-10">
+          <button class="btn-checkout-item bg-[#7E83A3] text-white px-6 py-1 -mb-45 rounded shadow hover:bg-[#6d7298]">Checkout</button>
+        </div>
+
+        <div>
+          <img src="./image/tptsampah.png" alt="Hapus" class="btn-hapus w-6 h-6 mt-35 cursor-pointer" title="Hapus produk" />
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <footer class="bg-[#4F5575] text-white py-10 px-6 rounded-b-3xl mt-10">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        
+        <!--Pelayanan -->
+        <div>
+          <h3 class="font-semibold text-lg mb-3 ml-10">Pelayanan</h3>
+          <ul class="space-y-1 text-sm ml-10">
+            <li>Bantuan</li>
+            <li>Metode Pembayaran</li>
+            <li>Detail Produk</li>
+            <li>Lokasi</li>
+            <li>Lacak Pesanan</li>
+            <li>Lacak Pengiriman</li>
+            <li>Garansi</li>
+            <li>Hubungi Myshop</li>
+          </ul>
+        </div>
+
+        <!--Tentang myshop -->
+        <div>
+          <h3 class="font-semibold text-lg mb-3 ml-20">Tentang myshop</h3>
+          <ul class="space-y-1 text-sm ml-20">
+            <li>Privasi</li>
+            <li>Keamanan</li>
+            <li>Kebijakan</li>
+            <li>Artikel</li>
+            <li>Blog</li>
+            <li>Karir</li>
+            <li>Kontak</li>
+            <li>Media</li>
+          </ul>
+        </div>
+        
+        <!--Pembayaran -->
+        <div>
+          <h3 class="font-semibold text-lg mb-3 ml-25">Pembayaran</h3>
+          <ul class="space-y-1 text-sm ml-25">
+            <li>COD</li>
+            <li>Dana</li>
+            <li>BCA</li>
+            <li>BRI</li>
+            <li>BNI</li>
+            <li>Mandiri</li>
+            <li>Alfamart</li>
+            <li>Indomart</li>
+          </ul>
+        </div>
+
+        <!--Media Sosial -->
+        <div>
+          <h3 class="font-semibold text-lg mb-3 ml-30">Media sosial</h3>
+          <ul class="space-y-1 text-sm ml-30">
+            <li>Ig: @Myshop_</li>
+            <li>Tiktok: 0wmyshop</li>
+            <li>Twitter: _myshop0</li>
+            <li>Yt: ini myshop</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+      <script src="./script/keranjang.js"></script>
+  </body>
+</html>

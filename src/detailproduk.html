@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail produk</title>
+  <link href="./style/output.css" rel="stylesheet" />
+</head>
+<body class="bg-[#E3D5E2] font-sans">
+
+  <div class="bg-[#E3D5E2] justify-start items-center">
+    <a href="homepage.html">
+      <img src="image/back.png" alt="back" class="w-10 h-10 ml-8 mt-10">
+    </a>
+  </div>
+
+  <section class="p-6 py-3 -mt-3">
+    <div class="bg-white p-6 flex flex-wrap gap-6 w-full max-w-7xl mx-auto h-80 items-center mt-6">
+      <div class="p-4">
+        <img id="produk-gambar" src="" alt="" class="w-48 h-48 rounded pointer-events-none" />
+        <p id="produk-harga" class="text-[#7E83A3] text-xl font-bold mt-2 ml-10">harga produk</p>
+      </div>
+      
+      <div class="p-2 flex-1 mt-5">
+        <h2 id="produk-judul" class="text-2xl font-bold text-[#4F5575] -mt-30 py-4">Nama Produk</h2>
+        <p id="produk-deskripsi" class="text-[#979DB5] mb-4">Deskripsi produk akan muncul di sini.</p>
+        <p id="produk-rating" class="text-[#979DB5] mb-4">rating produk</p>
+        <p id="total-terjual" class="text-[#979DB5] mb-4">total terjual</p>
+      </div>
+
+      <div class="w-full flex justify-stat -mt-40 ml-64">
+        <div class="flex items-center bg-gray-300 w-fit rounded">
+          <button onclick="decreaseQty()" class="px-3 -py-2 text-black text-xl">-</button>
+          <input type="text" value="1" class="qty-input w-9 text-center bg-white text-black py-2 outline-none" readonly>
+          <button onclick="increaseQty()" class="px-3 -py-2 text-black text-xl">+</button>
+        </div>
+      </div>
+    </div>
+      
+      <div class="flex items-center space-x-8 -mt-15 ml-250">
+        <img id="keranjang-icon" src="./image/keranjang.png" alt="Keranjang Belanja" class="w-6 h-6 text-gray-600 cursor-pointer" />
+        <button id="checkout-button" class="bg-[#7E83A3] text-white px-6 py-1 rounded-sm cursor-pointer">Checkout</button>
+      </div>
+  </section>
+
+  <div class="flex justify center items-center space-x-4">
+    <button class="bg-[#7E83A3] text-white px-10 py-2 text-3x1 rounded-xl mt-13 ml-140">Ulasan</button>
+  </div>
+
+  <!-- box baris Ulasan -->
+  <div class="w-full max-w-5xl mx-auto py-10">
+    <!-- Form Input Review -->
+    <div class="bg-white p-6 rounded-lg shadow mb-10 w-302 h-54 -ml-23">
+      <input id="nama-input" type="text" placeholder="Nama Kamu" class="border p-3 w-full mb-4 rounded text-lg h-13">
+      <textarea id="komentar-input" rows="3" placeholder="Tulis komentarmu..." class="border p-3 h-13 w-full mb-4 rounded text-lg appearance-none"></textarea>
+
+      <div class="flex items-center justify-between">
+        <!-- Rating -->
+        <div class="flex items-center -mt-3">
+          <label class="font-semibold mr-3 text-lg">Rating:</label>
+          <select id="rating-input" class="border p-2 rounded text-sm h-10">
+            <option value="5">★★★★★</option>
+            <option value="4">★★★★☆</option>
+            <option value="3">★★★☆☆</option>
+            <option value="2">★★☆☆☆</option>
+            <option value="1">★☆☆☆☆</option>
+          </select>
+        </div>
+
+        <!-- Tombol Kirim pakai ikon -->
+        <button id="kirim-btn">
+          <img src="./image/send.png" alt="Kirim" class="w-6 h-6">
+        </button>
+      </div>
+    </div>
+
+    <!-- Container Hasil Review -->
+    <div id="review-container" class="space-y-4"></div>
+  </div>
+
+  <!-- Template Review -->
+  <template id="review-template">
+    <div class="bg-white p-4 rounded-lg w-302 -ml-23 shadow flex justify-between items-start border border-blue-900">
+      <div>
+        <div class="flex items-center mb-2">
+          <img src="./image/profile.png" class="w-8 h-8 mr-2 rounded-full">
+          <span class="font-semibold nama-review text-[#4F5575] text-lg"></span>
+        </div>
+        <div class="mb-2 rating-review flex space-x-1"></div>
+        <p class="font-medium text-[#4F5575] komentar-review text-lg"></p>
+      </div>
+      <img src="./image/tptsampah.png" class="w-4 h-4 cursor-pointer hapus-btn">
+    </div>
+  </template>
+  
+  <section class="bg-[#71769C] text-white p-6 mx-auto w-300">
+    <!-- Nama Produk -->
+    <h1 id="produk-judul-utama" class="text-3xl font-bold mb-4">Nama Produk</h1>
+
+    <!-- Deskripsi -->
+    <h2 class="font-bold text-white mb-2 mt-6">Deskripsi Produk</h2>
+    <p id="produk-deskripsi-utama" class="mb-4"></p>
+
+    <!-- Brand -->
+    <h2 class="font-bold text-white mb-2">Keterangan</h2>
+    <p id="produk-keterangan" class="mb-4">-</p>
+
+    <!-- Kategori -->
+    <h2 class="font-bold text-white mb-2">Jenis Produk</h2>
+    <p id="produk-jenis" class="mb-4">-</p>
+
+    <!-- Info Lain -->
+    <p id="produk-stok">Stok: </p>
+    <p id="produk-brand">Brand: </p>
+    <p id="produk-kategori">Kategori: </p>
+  </section>
+ 
+  <footer class="bg-[#4F5575] text-white py-10 px-6 rounded-b-3xl mt-10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        
+      <!--Pelayanan -->
+      <div>
+        <h3 class="font-semibold text-lg mb-3 ml-10">Pelayanan</h3>
+        <ul class="space-y-1 text-sm ml-10">
+          <li>Bantuan</li>
+          <li>Metode Pembayaran</li>
+          <li>Detail Produk</li>
+          <li>Lokasi</li>
+          <li>Lacak Pesanan</li>
+          <li>Lacak Pengiriman</li>
+          <li>Garansi</li>
+          <li>Hubungi Myshop</li>
+        </ul>
+      </div>
+
+      <!--Tentang myshop -->
+      <div>
+        <h3 class="font-semibold text-lg mb-3 ml-20">Tentang myshop</h3>
+        <ul class="space-y-1 text-sm ml-20">
+          <li>Privasi</li>
+          <li>Keamanan</li>
+          <li>Kebijakan</li>
+          <li>Artikel</li>
+          <li>Blog</li>
+          <li>Karir</li>
+          <li>Kontak</li>
+          <li>Media</li>
+        </ul>
+      </div>
+        
+      <!--Pembayaran -->
+      <div>
+        <h3 class="font-semibold text-lg mb-3 ml-25">Pembayaran</h3>
+        <ul class="space-y-1 text-sm ml-25">
+          <li>COD</li>
+          <li>Dana</li>
+          <li>BCA</li>
+          <li>BRI</li>
+          <li>BNI</li>
+          <li>Mandiri</li>
+          <li>Alfamart</li>
+          <li>Indomart</li>
+        </ul>
+      </div>
+
+      <!--Media Sosial -->
+      <div>
+        <h3 class="font-semibold text-lg mb-3 ml-30">Media sosial</h3>
+        <ul class="space-y-1 text-sm ml-30">
+          <li>Ig: @Myshop_</li>
+          <li>Tiktok: 0wmyshop</li>
+          <li>Twitter: _myshop0</li>
+          <li>Yt: ini myshop</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./script/detailproduk.js"></script>
+</body>
+</html>

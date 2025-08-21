@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyShop</title>
+  <link href="./style/output.css" rel="stylesheet" />
+</head>
+<body class="bg-white font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-[#7E83A3] px-6 py-4 flex items-center justify-between rounded-b-xl">
+    <div class="flex items-center space-x-12">
+      <div class="text-white text-3xl font-bold tracking-widest">MYSHOP</div>
+      
+      <nav class="flex items-center space-x-10 text-white font-semibold ml-10 ">
+        <a href="#" class="transition transform hover:scale-105">KATEGORI</a>
+        <a href="#" class="transition transform hover:scale-105">PRODUK</a>
+      </nav> 
+    </div> 
+  
+    <!-- Search + keranjang -->
+    <div class="flex items-center space-x-4">
+      <div class="relative bg-white w-96 rounded-full">
+        <input type="text" placeholder="Search product" class="w-full rounded-full px-5 py-2 text-base focus:outline-none"/>
+        <img src="image/search (1).png" alt="search" class="w-5 h-5 absolute right-4 top-3"/>
+      </div>
+      <img src="image/keranjang.png" alt="cart" class="w-6 h-6 cursor-pointer" id="keranjang-icon"/>
+    </div>
+  
+    <div class="flex items-center space-x-3">
+      <a href="daftar.html" class="bg-[#E3D5E2] text-white px-7 py-1 rounded-3xl hover:bg-[#8a7aa4] mr-8">Daftar</a>
+      <a href="masuk.html" class="bg-[#E3D5E2] text-white px-7 py-1 rounded-3xl hover:bg-[#8a7aa4]">Masuk</a>
+    </div>
+  </header>
+
+  <!-- box cream -->
+  <div class="bg-[#fdf5e6] mt-6 text-center py-3 text-gray-700"> Ayo senangkan hati mu dengan selalu setia menggunakan myshop</div>
+
+  <!-- box besar promo -->
+  <section class="p-6">
+    <div class="bg-[#4F5575] rounded-3xl p-6 flex flex-wrap gap-6 items-start text-white">
+      
+      <!-- box kecil Promo -->
+      <div class="flex-1 max-w-xs space-y-4">
+        <h2 class="text-3xl font-Inria Serif font-semibold leading-snug">Hanya klik mempermudah berbelanja anda!</h2>
+        <div class="bg-[#979DB5] p-4 rounded-lg h-40 mt-12">
+          <p class="text-2xl font-bold mt-7">Diskon hingga 78%</p>
+          <p class="mt-1 text-1xl">Untuk pengguna baru</p>
+        </div>
+      </div>
+
+      <!-- Product Cards -->
+      <div class="flex-[2] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+        <!-- Kartu Promo 1 -->
+        <div id="produk-card-1" class="bg-white rounded-lg p-2 text-[#4F5575]">
+          <img class="produk-img rounded-md" alt="Produk" />
+          <div class="mt-2">
+            <span class="produk-diskon bg-[#E3D5E2] px-2 py-1 rounded-full inline-block w-20 text-center"></span>
+            <p class="produk-harga text-lg"></p>
+          </div>
+        </div>
+      
+
+        <!-- Kartu Promo 2 -->
+        <div id="produk-card-2" class="bg-white rounded-lg p-2 text-[#4F5575]">
+          <img class="produk-img rounded-md" alt="Produk" />
+          <div class="mt-2">
+            <span class="produk-diskon bg-[#E3D5E2] px-2 py-1 rounded-full inline-block w-20 text-center"></span>
+            <p class="produk-harga text-lg mt-1"></p>
+          </div>
+        </div>
+
+        <!-- Kartu Promo 3 -->
+        <div id="produk-card-3" class="bg-white rounded-lg p-2 text-[#4F5575]">
+          <img class="produk-img rounded-md" alt="Produk" />
+          <div class="mt-2">
+            <span class="produk-diskon bg-[#E3D5E2] px-2 py-1 rounded-full inline-block w-20 text-center"></span>
+            <p class="produk-harga text-lg mt-1"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-6 max-w-screen-xl mx-auto">
+    <h2 class="text-3xl font-semibold text-[#4a4a75] text-left ml-6">KATEGORI</h2>
+    
+    <div class="flex flex-wrap justify-center items-center md:justify-between gap-3 space-x-9 ml-8 mr-5">
+      <!-- Item Kategori -->
+      <div class="flex flex-col items-center mt-20">
+        <img src="./image/elektronik.jpeg" alt="Elektronik" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <p class="text-sm mt-2 text-[#4a4a75]">Elektronik</p>
+      </div>
+    
+      <div class="flex flex-col items-center mt-20">
+        <img src="./image/aksesoris.jpeg" alt="Aksesori" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <p class="text-sm mt-2 text-[#4a4a75]">Aksesoris</p>
+      </div>
+    
+      <div class="flex flex-col items-center mt-20">
+        <img src="./image/fashion.jpeg" alt="Fashion" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <p class="text-sm mt-2 text-[#4a4a75]">Fashion</p>
+      </div>
+    
+      <div class="flex flex-col items-center mt-20">
+        <img src="./image/make up.jpeg" alt="Make-up" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <p class="text-sm mt-2 text-[#4a4a75]">Make-up</p>
+      </div>
+    
+      <div class="flex flex-col items-center mt-20">
+        <img src="./image/perlengkapan.jpeg" alt="Perlengkapan" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <p class="text-sm mt-2 text-[#4a4a75]">Perlengkapan</p>
+      </div>
+    
+      <div class="flex flex-col items-center mt-20">
+        <img src="./image/sepatu.jpeg" alt="Sepatu" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <p class="text-sm mt-2 text-[#4a4a75]">Sepatu</p>
+      </div>
+    </div>
+  </section>
+    
+  <section class="bg-[#959BB3] px-6 py-6">
+    <h2 class="text-3xl font-bold text-white mb-4">PRODUK</h2>
+    <div id="produk-container" class="grid grid-cols-1 sm:grid-cols-5 gap-4"></div>
+      
+    <!-- Template produk -->
+    <template id="produk-landing">
+      <div class="bg-white p-3 rounded-md shadow flex flex-col items-center">
+        <img src="" alt="Produk" class="rounded mb-3 w-full h-auto produk-img" />
+        <h3 class="produk-judul text-center mb-1"></h3>
+        <p class="text-[#4F5575] text-center font-medium mb-2 text-2xl produk-harga"></p>
+      </div>
+    </template>
+  </section>
+
+  <div class="bg-[#E3D5E2] rounded-3xl p-4 mx-4 px-6 text-center shadow-md mt-10 mr-20 ml-20 h-75">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Apa yang membuat myshop lebih istimewa?</h2>
+      
+    <div class="flex flex-col md:flex-row justify-center items-center gap-x-20 mt-10">
+      <div class="flex items-center gap-2">
+        <div class="bg-[#4a4c69] p-1.5 rounded-full">
+          <img src="image/centang.png" alt="Centang" class="w-5 h-5">
+        </div>
+        <span class="text-gray-800 text-xl">Diskon setiap hari</span>
+      </div>
+    
+      <div class="flex items-center gap-2">
+        <div class="bg-[#4a4c69] p-1.5 rounded-full">
+          <img src="image/centang.png" alt="Centang" class="w-5 h-5">
+        </div>
+        <span class="text-gray-800 text-xl">Aman, terpercaya, praktis</span>
+      </div>
+    
+      <div class="flex items-center gap-2">
+        <div class="bg-[#4a4c69] p-1.5 rounded-full">
+          <img src="image/centang.png" alt="Centang" class="w-5 h-5">
+        </div>
+        <span class="text-gray-800 text-xl">Pengiriman cepat</span>
+      </div>
+    </div>
+    
+    <p class="text-gray-700 leading-relaxed text-2xl mt-10 align-center">
+      "Kami hadir untuk memberikan pengalaman belanja terbaik, mudah, dan <br>
+      nyaman di ujung jarimu. Temukan produk terbaik, harga terjangkau, dan <br>
+      layanan pelanggan yang selalu siap membantu."<br>
+    </p>
+  </div>
+
+  <footer class="bg-[#4F5575] text-white py-10 px-6 rounded-b-3xl mt-15">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        
+        <!--Pelayanan -->
+        <div>
+          <h3 class="font-semibold text-lg mb-3 ml-10">Pelayanan</h3>
+          <ul class="space-y-1 text-sm ml-10">
+            <li>Bantuan</li>
+            <li>Metode Pembayaran</li>
+            <li>Detail Produk</li>
+            <li>Lokasi</li>
+            <li>Lacak Pesanan</li>
+            <li>Lacak Pengiriman</li>
+            <li>Garansi</li>
+            <li>Hubungi Myshop</li>
+          </ul>
+        </div>
+
+        <!--Tentang myshop -->
+        <div>
+          <h3 class="font-semibold text-lg mb-3 ml-20">Tentang myshop</h3>
+          <ul class="space-y-1 text-sm ml-20">
+            <li>Privasi</li>
+            <li>Keamanan</li>
+            <li>Kebijakan</li>
+            <li>Artikel</li>
+            <li>Blog</li>
+            <li>Karir</li>
+            <li>Kontak</li>
+            <li>Media</li>
+          </ul>
+        </div>
+        
+        <!--Pembayaran -->
+        <div>
+          <h3 class="font-semibold text-lg mb-3 ml-25">Pembayaran</h3>
+          <ul class="space-y-1 text-sm ml-25">
+            <li>COD</li>
+            <li>Dana</li>
+            <li>BCA</li>
+            <li>BRI</li>
+            <li>BNI</li>
+            <li>Mandiri</li>
+            <li>Alfamart</li>
+            <li>Indomart</li>
+          </ul>
+        </div>
+
+        <!--Media Sosial -->
+        <div>
+          <h3 class="font-semibold text-lg mb-3 ml-30">Media sosial</h3>
+          <ul class="space-y-1 text-sm ml-30">
+            <li>Ig: @Myshop_</li>
+            <li>Tiktok: 0wmyshop</li>
+            <li>Twitter: _myshop0</li>
+            <li>Yt: ini myshop</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script/landing_page.js"></script>
+</body>
+</html>

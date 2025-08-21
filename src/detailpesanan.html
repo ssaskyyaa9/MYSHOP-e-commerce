@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Pesanan</title>
+  <link href="./style/output.css" rel="stylesheet" />
+</head>
+<body class="bg-[#979DB5] text-[#4F5575] font-sans"></body>
+
+    <div class="relative bg-[#E3D5E2] py-6 shadow text-center">
+        <a href="homepage.html" class="absolute left-5 top-5">
+            <img src="image/back.png" alt="back" class="w-10 h-10">
+        </a>
+        <h1 class="text-3xl font-bold text-[#4F5575]">Detail Pembelian</h1>
+        <p class="text-sm text-[#4F5575]">Terima kasih sudah berbelanja!</p>
+    </div>
+
+    <!-- CONTAINER UTAMA -->
+    <div id="invoice" class="max-w-6xl mx-auto p-6 gap-8 mt-4">
+        
+        <!-- KOLOM KIRI -->
+        <div class="bg-[#ffff] p-6 rounded shadow space-y-6">
+            <div>
+                <h2 class="font-bold text-lg mb-2 text-[#4F5575]">Informasi Pembeli</h2>
+                <p><strong>Nama:</strong> Saskya Tia Ramadhani</p>
+                <p><strong>Email:</strong> Saskyas@email.com</p>
+                <p><strong>Alamat:</strong> Jl. Bunga Mawar No. 123, Depok</p>
+            </div>
+
+            <div>
+                <h2 class="font-bold text-lg mb-2 text-[#4F5575]">Status Pembayaran</h2>
+                <p class="text-green-600 font-medium">✅ Sudah Dibayar</p>
+            </div>
+
+            <div>
+                <h2 class="font-bold text-lg mb-2 text-[#4F5575]">Metode Pembayaran</h2>
+                <p>Transfer Bank (BCA)</p>
+            </div>
+        </div>
+
+        <!-- KOLOM KANAN -->
+        <div class="bg-[#ffff] p-6 rounded shadow mt-6">
+            <div>
+                <h2 class="font-bold text-lg mb-2 text-[#4F5575]">Produk Dibeli</h2>
+                <ul id="produk-list" class="space-y-3"></ul>
+            </div>
+
+            <div class="border-t pt-4">
+                <h2 class="font-bold text-lg mb-2 text-[#4F5575]">Ringkasan Pembayaran</h2>
+                <div class="flex justify-between">
+                    <span>Subtotal</span><span id="subtotal">Rp0</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Ongkir</span><span>Rp20.000</span>
+                </div>
+                <div class="flex justify-between font-bold text-[#4F5575] text-xl mt-2 pt-2 border-t">
+                    <span>Total</span><span id="total-ringkasan">Rp0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <script src ="./script/detailpesanan.js"></script>
+</body>
+</html>
