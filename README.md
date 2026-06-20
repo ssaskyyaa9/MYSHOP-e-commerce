@@ -22,7 +22,7 @@ Proyek latihan pengembangan web front-end yang dibuat sebagai tugas praktik. Apl
 - DummyJSON API — sumber data produk (fetch API)
 
 
-🔗 Integrasi API
+### 🔗 Integrasi API
 
 Data produk pada halaman landing page dan detail produk diambil secara langsung dari endpoint publik:
 
@@ -32,4 +32,4 @@ Setiap produk yang ditampilkan — termasuk gambar, nama, harga, dan diskon — 
 
 
 📌 Catatan
-Proyek ini dibuat untuk keperluan latihan/tugas praktik dan masih dalam tahap pengembangan.
+Project ini dibuat sebagai penilaian uji level pertama kali pada kelas X.
