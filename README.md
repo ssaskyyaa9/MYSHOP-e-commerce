@@ -2,7 +2,6 @@
 Proyek latihan pengembangan web front-end yang dibuat sebagai tugas praktik. Aplikasi ini berupa halaman katalog produk sederhana dengan tampilan yang dibangun menggunakan HTML dan Tailwind CSS, serta data produk yang diambil secara dinamis melalui REST API.
 
 
-
 ### Fitur
 
 - Landing page dengan daftar produk yang diambil dari API
