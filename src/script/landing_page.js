@@ -1,8 +1,6 @@
-// Fungsi untuk mengambil dan menampilkan produk di halaman utama
 async function fetchProduk() {
-  // Mengambil data produk dari API (maks 300 produk)
   const response = await fetch('https://dummyjson.com/products?limit=300');
-  const data = await response.json(); // Mengubah response menjadi JSON
+  const data = await response.json();
 
   // Mengambil elemen container tempat produk akan ditampilkan
   const produkContainer = document.getElementById('produk-container');
@@ -60,7 +58,6 @@ async function fetchProduk() {
 
 // Memanggil fungsi fetchProduk agar dijalankan saat halaman dibuka
 fetchProduk();
-
 
 // Fungsi untuk mengisi 3 produk promo di bagian khusus landing page
 async function isiProdukLanding() {

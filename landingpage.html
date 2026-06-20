@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MyShop</title>
-  <link href="./style/output.css" rel="stylesheet" />
+  <link href="src/style/output.css" rel="stylesheet" />
 </head>
 <body class="bg-white font-sans">
 
@@ -23,9 +23,9 @@
     <div class="flex items-center space-x-4">
       <div class="relative bg-white w-96 rounded-full">
         <input type="text" placeholder="Search product" class="w-full rounded-full px-5 py-2 text-base focus:outline-none"/>
-        <img src="image/search (1).png" alt="search" class="w-5 h-5 absolute right-4 top-3"/>
+        <img src="src/image/search (1).png" alt="search" class="w-5 h-5 absolute right-4 top-3"/>
       </div>
-      <img src="image/keranjang.png" alt="cart" class="w-6 h-6 cursor-pointer" id="keranjang-icon"/>
+      <img src="src/image/keranjang.png" alt="cart" class="w-6 h-6 cursor-pointer" id="keranjang-icon"/>
     </div>
   
     <div class="flex items-center space-x-3">
@@ -90,32 +90,32 @@
     <div class="flex flex-wrap justify-center items-center md:justify-between gap-3 space-x-9 ml-8 mr-5">
       <!-- Item Kategori -->
       <div class="flex flex-col items-center mt-20">
-        <img src="./image/elektronik.jpeg" alt="Elektronik" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <img src="src/image/elektronik.jpeg" alt="Elektronik" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
         <p class="text-sm mt-2 text-[#4a4a75]">Elektronik</p>
       </div>
     
       <div class="flex flex-col items-center mt-20">
-        <img src="./image/aksesoris.jpeg" alt="Aksesori" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <img src="src/image/aksesoris.jpeg" alt="Aksesori" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
         <p class="text-sm mt-2 text-[#4a4a75]">Aksesoris</p>
       </div>
     
       <div class="flex flex-col items-center mt-20">
-        <img src="./image/fashion.jpeg" alt="Fashion" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <img src="src/image/fashion.jpeg" alt="Fashion" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
         <p class="text-sm mt-2 text-[#4a4a75]">Fashion</p>
       </div>
     
       <div class="flex flex-col items-center mt-20">
-        <img src="./image/make up.jpeg" alt="Make-up" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <img src="src/image/make up.jpeg" alt="Make-up" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
         <p class="text-sm mt-2 text-[#4a4a75]">Make-up</p>
       </div>
     
       <div class="flex flex-col items-center mt-20">
-        <img src="./image/perlengkapan.jpeg" alt="Perlengkapan" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <img src="src/image/perlengkapan.jpeg" alt="Perlengkapan" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
         <p class="text-sm mt-2 text-[#4a4a75]">Perlengkapan</p>
       </div>
     
       <div class="flex flex-col items-center mt-20">
-        <img src="./image/sepatu.jpeg" alt="Sepatu" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
+        <img src="src/image/sepatu.jpeg" alt="Sepatu" class="w-30 h-30 rounded-full object-cover border-2 border-gray-400" />
         <p class="text-sm mt-2 text-[#4a4a75]">Sepatu</p>
       </div>
     </div>
@@ -141,21 +141,21 @@
     <div class="flex flex-col md:flex-row justify-center items-center gap-x-20 mt-10">
       <div class="flex items-center gap-2">
         <div class="bg-[#4a4c69] p-1.5 rounded-full">
-          <img src="image/centang.png" alt="Centang" class="w-5 h-5">
+          <img src="src/image/centang.png" alt="Centang" class="w-5 h-5">
         </div>
         <span class="text-gray-800 text-xl">Diskon setiap hari</span>
       </div>
     
       <div class="flex items-center gap-2">
         <div class="bg-[#4a4c69] p-1.5 rounded-full">
-          <img src="image/centang.png" alt="Centang" class="w-5 h-5">
+          <img src="src/image/centang.png" alt="Centang" class="w-5 h-5">
         </div>
         <span class="text-gray-800 text-xl">Aman, terpercaya, praktis</span>
       </div>
     
       <div class="flex items-center gap-2">
         <div class="bg-[#4a4c69] p-1.5 rounded-full">
-          <img src="image/centang.png" alt="Centang" class="w-5 h-5">
+          <img src="src/image/centang.png" alt="Centang" class="w-5 h-5">
         </div>
         <span class="text-gray-800 text-xl">Pengiriman cepat</span>
       </div>
@@ -229,6 +229,12 @@
       </div>
     </footer>
 
-    <script src="./script/landing_page.js"></script>
-</body>
+       <script src="src/script/landing_page.js"></script>
+    <script>
+      // Arahkan ke halaman keranjang saat ikon diklik
+      document.getElementById("keranjang-icon").addEventListener("click", function() {
+        window.location.href = "keranjang.html"; 
+      });
+    </script>
+  </body>
 </html>

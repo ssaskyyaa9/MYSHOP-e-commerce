@@ -31,23 +31,62 @@ async function fetchProduk() {
     // Mengkloning template untuk setiap produk
     const clone = template.content.cloneNode(true);
 
-    // Mengisi gambar produk dan menambahkan event klik ke halaman detail
+    // Mengisi gambar produk
     const img = clone.querySelector('.produk-img');
     img.src = produk.thumbnail;
     img.alt = produk.title;
-    img.classList.add('cursor-pointer');
-    img.addEventListener('click', () => {
-      // Arahkan ke halaman detail produk jika gambar diklik
+
+    // Tambahin cursor pointer + klik redirect ke detail produk
+    const card = clone.querySelector(".produk-card") || clone.firstElementChild;
+    card.style.cursor = "pointer";
+    card.addEventListener("click", () => {
       window.location.href = `detailproduk.html?id=${produk.id}`;
     });
 
     // Menghitung harga IDR (dolar ke rupiah) dan menampilkannya
     const harga = produk.price * 16000;
-    clone.querySelector('.produk-harga').textContent = `Rp ${harga.toLocaleString('id-ID')}`;
+    const hargaEl = clone.querySelector('.produk-harga');
+    hargaEl.textContent = `Rp ${harga.toLocaleString('id-ID')}`;
 
     // Menampilkan judul produk hanya 3 kata pertama
     const judulProduk = clone.querySelector('.produk-judul');
-    judulProduk.textContent = produk.title.split(" ").slice(0, 3).join(" "); // 🔥 Hanya 3 kata
+    judulProduk.textContent = produk.title.split(" ").slice(0, 3).join(" ");
+
+    // Rapihin judul & harga sejajar (tengah + bold harga)
+    judulProduk.style.display = "block";
+    judulProduk.style.textAlign = "center";
+    hargaEl.style.display = "block";
+    hargaEl.style.textAlign = "center";
+    hargaEl.style.fontWeight = "bold";
+
+    // Event klik keranjang tetap jalan tanpa trigger redirect
+    const keranjangIcon = clone.querySelector("img[alt='keranjang']");
+    if (keranjangIcon) {
+      keranjangIcon.style.cursor = "pointer"; // biar keranjang juga keliatan bisa diklik
+      keranjangIcon.addEventListener("click", (e) => {
+        e.stopPropagation(); // cegah redirect
+        const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+        const sudahAda = keranjang.find(item => item.id === produk.id);
+        if (sudahAda) {
+          alert("❗Produk sudah ada di keranjang.");
+          return;
+        }
+
+        keranjang.push({
+          id: produk.id,
+          title: produk.title,
+          price: harga,
+          description: produk.description,
+          thumbnail: produk.thumbnail,
+          qty: 1,
+          total: harga
+        });
+
+        localStorage.setItem("keranjang", JSON.stringify(keranjang));
+        alert("✅ Produk berhasil ditambahkan ke keranjang!");
+      });
+    }
 
     // Menambahkan elemen produk ke dalam container
     produkContainer.appendChild(clone);
@@ -172,30 +211,48 @@ async function aktifkanKeranjangPromo() {
 isiProdukHomepage().then(aktifkanKeranjangPromo);
 
 //bagian keranjang produk bawah//
-  document.addEventListener("DOMContentLoaded", async () => {
-    try {
-      const response = await fetch("https://dummyjson.com/products?limit=20");
-      const data = await response.json();
-      const produkList = data.products;
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch("https://dummyjson.com/products?limit=20");
+    const data = await response.json();
+    const produkList = data.products;
 
-      const container = document.getElementById("produk-container");
-      const template = document.getElementById("produk-homepage");
+    const container = document.getElementById("produk-container");
+    const template = document.getElementById("produk-homepage");
 
-      produkList.forEach((produk) => {
-        const clone = template.content.cloneNode(true);
+    produkList.forEach((produk) => {
+      const clone = template.content.cloneNode(true);
 
-        // Isi data produk
-        clone.querySelector(".produk-img").src = produk.thumbnail;
-        clone.querySelector(".produk-img").alt = produk.title;
-        clone.querySelector(".produk-judul").innerText = produk.title;
-        clone.querySelector(".produk-harga").innerText = `Rp ${Math.round(produk.price * 16000).toLocaleString("id-ID")}`;
+      // Isi data produk
+      const img = clone.querySelector(".produk-img");
+      img.src = produk.thumbnail;
+      img.alt = produk.title;
 
-        // Event klik keranjang
-        const keranjangIcon = clone.querySelector("img[alt='keranjang']");
-        keranjangIcon.addEventListener("click", () => {
-          const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+      const judul = clone.querySelector(".produk-judul");
+      judul.innerText = produk.title;
+      judul.style.textAlign = "center";
 
-          const item = {
+      const hargaEl = clone.querySelector(".produk-harga");
+      hargaEl.innerText = `Rp ${Math.round(produk.price * 16000).toLocaleString("id-ID")}`;
+      hargaEl.style.display = "block";
+      hargaEl.style.textAlign = "center";
+      hargaEl.style.fontWeight = "bold";
+
+      // Tambahin cursor pointer di produk bawah juga
+      const card = clone.querySelector(".produk-card") || clone.firstElementChild;
+      card.style.cursor = "pointer";
+      card.addEventListener("click", () => {
+        window.location.href = `detailproduk.html?id=${produk.id}`;
+      });
+
+      // Event klik keranjang
+      const keranjangIcon = clone.querySelector("img[alt='keranjang']");
+      keranjangIcon.style.cursor = "pointer";
+      keranjangIcon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+        const item = {
           id: produk.id,
           title: produk.title,
           price: Math.round(produk.price * 16000),
@@ -203,19 +260,30 @@ isiProdukHomepage().then(aktifkanKeranjangPromo);
           description: produk.description
         };
 
-          const sudahAda = keranjang.find(p => p.id === item.id);
-          if (!sudahAda) {
-            keranjang.push(item);
-            localStorage.setItem("keranjang", JSON.stringify(keranjang));
-            alert(`${item.nama} berhasil dimasukkan ke keranjang!`);
-          } else {
-            alert(`${item.nama} sudah ada di keranjang.`);
-          }
-        });
-
-        container.appendChild(clone);
+        const sudahAda = keranjang.find(p => p.id === item.id);
+        if (!sudahAda) {
+          keranjang.push(item);
+          localStorage.setItem("keranjang", JSON.stringify(keranjang));
+          alert(`${item.title} berhasil dimasukkan ke keranjang!`);
+        } else {
+          alert(`${item.title} sudah ada di keranjang.`);
+        }
       });
-    } catch (error) {
-      console.error("Gagal mengambil produk dari API:", error);
-    }
-  });
+
+      container.appendChild(clone);
+    });
+  } catch (error) {
+    console.error("Gagal mengambil produk dari API:", error);
+  }
+});
+
+// Klik icon keranjang di navbar → langsung masuk ke halaman keranjang
+document.addEventListener("DOMContentLoaded", () => {
+  const navbarCartIcon = document.querySelector("#navbar-cart-icon"); 
+  if (navbarCartIcon) {
+    navbarCartIcon.style.cursor = "pointer";
+    navbarCartIcon.addEventListener("click", () => {
+      window.location.href = "keranjang.html";
+    });
+  }
+});
