@@ -31,5 +31,5 @@ _https://dummyjson.com/products_
 Setiap produk yang ditampilkan — termasuk gambar, nama, harga, dan diskon — diambil dan diolah secara dinamis menggunakan JavaScript fetch().
 
 
-📌 Catatan
+📌 Catatan: 
 Project ini dibuat sebagai penilaian uji level pertama kali pada kelas X.
